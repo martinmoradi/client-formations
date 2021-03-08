@@ -1,8 +1,10 @@
 import React from 'react';
+import Navbar from './components/Navbar/Navbar';
+import './App.scss';
 
 const App = () => (
     <div>
-      <h1>Hello world</h1>
+      <Navbar />
     </div>
     )
 
