@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { Form, Input, Button, Select } from 'antd';
 
@@ -20,11 +19,17 @@ const Register = () => {
     role: string;
   }
 
+  interface OnFinishFailed {
+    errorFields: Array<object>;
+    outOfDate: boolean;
+    values: OnFinishValue;
+  }
+
   const onFinish = (values: OnFinishValue) => {
     console.log('Success:', values);
   };
 
-  const onFinishFailed = (errorInfo: any) => {
+  const onFinishFailed = (errorInfo: OnFinishFailed) => {
     console.log('Failed:', errorInfo);
   };
 

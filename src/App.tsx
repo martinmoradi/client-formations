@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import './App.scss';
-import Home from './components/Home/Home';
-import Register from './components/Register/Register';
-import Login from './components/Login/Login';
+import Home from './pages/Home/Home';
+import Register from './pages/Register/Register';
+import Login from './pages/Login/Login';
 
 const App = () => (
   <Router>
@@ -19,12 +19,12 @@ const App = () => (
             <Register />
           </Route>
           <Route path="/login">
-            Login
+            <Login />
           </Route>
         </Switch>
       </main>
     </div>
   </Router>
-    )
+);
 
-export default App
+export default App;
