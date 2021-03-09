@@ -10,7 +10,8 @@ const StudentBoard = () => (
           <h3> Learn the latest skills to reach your professional goals.</h3>
           <SearchBar />
         </div>
-        <div>
+        <div className="cards-layout">
+          <CardDb />
           <CardDb />
         </div>
       </div>

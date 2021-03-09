@@ -8,11 +8,6 @@ const CardDb = () => (
       <p>Project Management</p>
       <p>Javascript introduction</p>
     </Card>
-    <Card title="Card title" bordered={false} style={{ width: 500 }}>
-      <p>PHP application</p>
-      <p>Project Management</p>
-      <p>Javascript introduction</p>
-    </Card>
   </div>
   )
 
