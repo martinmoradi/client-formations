@@ -1,6 +1,6 @@
-import React from 'react'
-import CardDb from '../../components/Card/Card'
-import SearchBar from '../../components/SearchBar/SearchBar'
+import React from 'react';
+import CardDb from '../../components/Card/Card';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 const StudentBoard = () => (
     <>

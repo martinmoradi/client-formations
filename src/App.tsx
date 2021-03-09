@@ -6,6 +6,7 @@ import Home from './pages/Home/Home';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import Footer from './components/Footer/Footer';
+import LandingPage from './pages/Home/LandingPage';
 
 const App = () => (
   <Router>
@@ -21,6 +22,9 @@ const App = () => (
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/landing-page">
+            <LandingPage />
           </Route>
         </Switch>
       </main>
