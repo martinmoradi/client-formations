@@ -4,7 +4,7 @@ import Calendar from '../../components/Calendar/Calendar';
 const Home = () => (
   <>
     <div>
-      Welcome in home
+      <p>Welcome in home</p>
     </div>
     <div>
       <Calendar />
