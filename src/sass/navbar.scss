@@ -8,7 +8,10 @@ $nav-height: 6em;
   align-items: center;
   text-align: center;
   justify-content:space-around;
-  a {color:white;}
+  a {color:white;      
+    &:hover {
+      color:white;
+  }}
   .navigation {
     display: flex;
     .nav-item {
@@ -26,5 +29,35 @@ $nav-height: 6em;
     font-weight: bold;
     cursor: pointer;
     color:white;
+  }
+}
+
+//links animation
+a, a:visited {
+	text-decoration: none;
+	position: relative;
+	
+	&:after {
+		content: '';
+		height: 3px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0%;
+		background: $dark;
+		transition: 0.2s;
+	}
+
+	&:hover:after {
+		width: 100%;
+	}
+	
+	&.block {
+		display: block;
+		padding: 0.5em;
+		
+		&:hover {
+			background: #eee;
+		}
   }
 }
