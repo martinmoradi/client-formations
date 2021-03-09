@@ -1,7 +1,15 @@
 import React from 'react'
+import Calendar from '../Calendar/Calendar'
 
 const Home = () => (
-    <div>Hi it's home</div>
+  <>
+    <div>
+      Welcome in home
+    </div>
+    <div>
+      <Calendar />
+    </div>
+  </>
   )
 
 export default Home

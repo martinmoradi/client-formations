@@ -7,8 +7,8 @@ import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 
 const App = () => (
+  <Router>
     <div>
-      <Router>
       <Navbar />
       <main>
         <Switch>
@@ -23,8 +23,8 @@ const App = () => (
           </Route>
         </Switch>
       </main>
-      </Router>
     </div>
+  </Router>
     )
 
 export default App

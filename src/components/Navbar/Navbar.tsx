@@ -2,21 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => (
-    <nav className="navbar">
-      <ul>
-        <li>
-        <Link to="/">Home</Link>
-        </li> 
-        <li>
-        <Link to="/register">Register</Link>
-        </li> 
-        <li>
-        <Link to="/login">Login</Link>
-        </li> 
-        <li>
-        <Link to="/logout">Logout</Link>
-        </li> 
-      </ul>
+    <nav className="horizontal-navbar">
+    <Link to="/" className="logo">
+      FormYou
+    </Link>
+      <div className="navigation">
+        <div className="nav-item">
+          <Link to="/">Home</Link>
+        </div>
+        <div className="nav-item">
+          <Link to="/register">Register</Link>
+        </div>
+        <div className="nav-item">
+          <Link to="/login">Login</Link>
+        </div>
+      </div>
+        <div className="nav-item-right">
+          <Link to="/logout">Logout</Link>
+        </div>
     </nav>
   )
 

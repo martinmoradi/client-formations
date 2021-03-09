@@ -1,8 +1,24 @@
+@import './sass/utilities.scss';
 @import './sass/navbar.scss';
+@import './sass/calendar.scss';
 
 // Global layout
 body {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
+  p{
+    color:$gray;
+    font-weight: 500;
+    line-height: 2em;
+  }
+}
+
+main {
+  padding:6em;
+  position: relative;
+  padding-top:$nav-height;
 }
