@@ -9,14 +9,11 @@ html {
 }
 
 body {
-  position: relative;
-  min-height:100vh;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 18px;
-  padding-bottom:$footer-height
   p{
     color:$gray;
     font-weight: 500;
@@ -24,7 +21,12 @@ body {
   }
 }
 
-// main {
-//   padding:6em;
-//   padding-top:$nav-height;
-// }
+.App {
+  position: relative;
+  min-height: 100vh;
+}
+main {
+  padding: 10% 10%;
+  padding-bottom: $footer-height;
+  padding-top:$nav-height;
+}

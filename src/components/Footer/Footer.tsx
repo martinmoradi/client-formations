@@ -1,13 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => (
   <footer>
-    <p>
       Made with
       <span className="heart">&hearts;</span>
       by Les Perruches
-    </p>
-</footer>
+  </footer>
   )
 
 export default Footer

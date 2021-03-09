@@ -9,7 +9,9 @@ import Footer from './components/Footer/Footer';
 
 const App = () => (
   <Router>
+    <div className="App">
       <Navbar />
+      <main>
         <Switch>
           <Route path="/" exact>
             <Home />
@@ -18,10 +20,12 @@ const App = () => (
             <Register />
           </Route>
           <Route path="/login">
-            Login
+            <Login />
           </Route>
         </Switch>
-      <Footer />
+      </main>
+    <Footer />
+    </div>
   </Router>
     )
 
