@@ -18,7 +18,7 @@ const SearchBar = () => {
   return (
     <div className="form-container">
       <Space direction="vertical">
-        <Search placeholder="input search text" onSearch={onSearch} enterButton size="large" style={{ width: 400 }} />
+        <Search placeholder="What do you want to learn ?" onSearch={onSearch} enterButton size="large" style={{ width: 400 }} />
       </Space>
   </div>
   )
