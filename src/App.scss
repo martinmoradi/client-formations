@@ -1,15 +1,22 @@
 @import './sass/utilities.scss';
 @import './sass/navbar.scss';
 @import './sass/calendar.scss';
+@import './sass/footer.scss';
 
 // Global layout
+html {
+  height: 100%;
+}
+
 body {
-  min-height: 100vh;
+  position: relative;
+  min-height:100vh;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 18px;
+  padding-bottom:$footer-height
   p{
     color:$gray;
     font-weight: 500;
@@ -17,8 +24,7 @@ body {
   }
 }
 
-main {
-  padding:6em;
-  position: relative;
-  padding-top:$nav-height;
-}
+// main {
+//   padding:6em;
+//   padding-top:$nav-height;
+// }
