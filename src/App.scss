@@ -6,6 +6,7 @@
 @import './sass/student_board.scss';
 @import './sass/card.scss';
 @import './sass/button.scss';
+@import './sass/landing_page.scss';
 
 // Global layout
 html {
@@ -17,7 +18,9 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
   p{
+    color:$gray;
     font-size:18px;
     font-weight: 500;
     line-height: 2em;
@@ -32,4 +35,9 @@ main {
   padding: 10% 10%;
   padding-bottom: $footer-height;
   padding-top:$nav-height;
+  h3 {
+    color:$primary;
+    font-weight: bold;
+    font-size:38px;
+  }
 }

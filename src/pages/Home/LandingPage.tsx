@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import StudentImg from '../../assets/images/student1.jpg';
 
 const LandingPage = () => {
   console.log('hello')
@@ -6,13 +7,17 @@ const LandingPage = () => {
     <div className="home">
       <div className="home-header">
         <h3> Your future start here</h3>
-        <p>Learn how to learn</p>
-        <p>Discover the skills of tomorrow.</p>
-        <p>And take charge of your career.</p>
+        <p>Learn how to learn <br/>
+        Discover the skills of tomorrow.<br />
+        And takecharge of your career.</p>
         <button type="button" className="btn-primary">
         Get started
       </button>
       </div>
+
+      <div className="home-img">
+        <img src={StudentImg} alt="student" />
+    </div>
     </div>
   )
 }

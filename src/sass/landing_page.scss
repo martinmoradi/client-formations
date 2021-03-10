@@ -1,0 +1,16 @@
+.home {
+  display:flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
+.home-img {
+  height:40%;
+  width: 35%;
+  img {
+    max-width: 100%;
+    transition: all .2s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
