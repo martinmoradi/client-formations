@@ -14,6 +14,7 @@
     }
   },
   "rules": {
+    "react/react-in-jsx-scope": "off",
     "object-curly-spacing": ["warn", "always"],
     "no-unused-vars": [
       "warn",

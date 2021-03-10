@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import CardDb from '../../../components/Card/Card';
 import SearchBar from '../../../components/SearchBar/SearchBar';
+import AdminClassroom from '../AdminClassroom/AdminClassroom';
 import AdminCourses from '../AdminCourses/AdminCourses';
 
 const AdminBoard = () => (
@@ -26,6 +27,9 @@ const AdminBoard = () => (
         <Switch>
           <Route path="/admin/course">
             <AdminCourses />
+          </Route>
+          <Route path="/admin/classroom">
+            <AdminClassroom />
           </Route>
         </Switch>
       </div>
