@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import StudentImg from '../../assets/images/student1.jpg';
 import GraduateImg from '../../assets/images/graduate.svg';
 import TeacherImg from '../../assets/images/teacher.svg';
@@ -74,9 +75,11 @@ const LandingPage = () => (
           Choose your career and learn with professional projects.<br />
           Check below our training list.
         </p>
+        <Link to="/courses">
         <button type="button" className="btn-primary">
          Courses list
         </button>
+        </Link>
       </div>
       <div className="home-list-img">
         <img src={CoursesImg} alt="calendar" />
