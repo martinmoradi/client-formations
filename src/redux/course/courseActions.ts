@@ -11,7 +11,7 @@ export const receiveCourse = (response) => ({
   isFetching: false,
   isAuthenticated: true,
   id_token: response.jwt,
-  user: response.user,
+  course: response.course,
 });
 
 export const courseError = (message: String[]) => ({

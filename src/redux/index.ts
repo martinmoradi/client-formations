@@ -1,0 +1,1 @@
+export { getAllCourses } from './course/courseMiddleware';
