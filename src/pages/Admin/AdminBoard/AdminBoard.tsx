@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import CardDb from '../../../components/Card/Card';
 import SearchBar from '../../../components/SearchBar/SearchBar';
+import AdminCourses from '../AdminCourses/AdminCourses';
 
 const AdminBoard = () => (
   <>
@@ -22,6 +23,11 @@ const AdminBoard = () => (
             <Link to="/admin/user">User</Link>
           </li>
         </ul>
+        <Switch>
+          <Route path="/admin/course">
+            <AdminCourses />
+          </Route>
+        </Switch>
       </div>
     </div>
   </>
