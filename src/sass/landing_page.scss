@@ -16,7 +16,7 @@
 }
 
 .home-steps {
-  margin-top:5em;
+  margin-top:10em;
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
@@ -40,5 +40,31 @@
     color:$primary;
     font-weight: bold;
     font-size:26px;
+  }
+}
+
+.home-list-txt {
+  h4 {
+    color:$primary;
+    font-weight: bold;
+    font-size:26px;
+  }
+}
+
+.home-list {
+  margin-top:8em;
+  display:flex;
+  justify-content:space-around;
+}
+
+.home-list-img {
+  height:60px;
+  width: 35%;
+  img {
+    max-width: 100%;
+    transition: all .2s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }

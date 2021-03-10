@@ -3,18 +3,21 @@ import StudentImg from '../../assets/images/student1.jpg';
 import GraduateImg from '../../assets/images/graduate.svg';
 import TeacherImg from '../../assets/images/teacher.svg';
 import InterviewImg from '../../assets/images/interview.svg';
+import CoursesImg from '../../assets/images/courses.jpg';
 
 const LandingPage = () => (
   <>
+
+  {/* top part with img */}
   <div className="home">
     <div className="home-header">
       <h3> Your future start here</h3>
       <p>Learn how to learn <br/>
       Discover the skills of tomorrow.<br />
-      And takecharge of your career.</p>
+      And take charge of your career.</p>
       <button type="button" className="btn-primary">
       Get started
-    </button>
+      </button>
     </div>
 
     <div className="home-img">
@@ -22,6 +25,7 @@ const LandingPage = () => (
     </div>
   </div>
 
+    {/* steps part with imgs */}
   <div className="home-steps">
     <div className="home-steps-item">
       <div className="hsi-img">
@@ -57,6 +61,26 @@ const LandingPage = () => (
           <p>80% of our graduated students <br/>
           find a job within 3 months</p>
         </div>
+    </div>
+
+    {/* part for get course list cta */}
+    <div className  ="home-list">
+      <div className="home-list-txt">
+        <h4>
+        An innovative training
+        </h4>
+        <p>
+          FormYou give you access to multiple courses.<br/>
+          Choose your career and learn with professional projects.<br />
+          Check below our training list.
+        </p>
+        <button type="button" className="btn-primary">
+         Courses list
+        </button>
+      </div>
+      <div className="home-list-img">
+        <img src={CoursesImg} alt="calendar" />
+      </div>
     </div>
   </>
   )

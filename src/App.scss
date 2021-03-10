@@ -33,11 +33,16 @@ body {
 }
 main {
   padding: 10% 10%;
-  padding-bottom: $footer-height;
+  padding-bottom: $footer-height+1em;
   padding-top:$nav-height;
   h3 {
     color:$primary;
     font-weight: bold;
     font-size:38px;
   }
+}
+
+.home-list {
+  background: rgb(245, 245, 245);
+  padding: 72px 0px;
 }
