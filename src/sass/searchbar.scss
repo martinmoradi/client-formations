@@ -1,3 +1,8 @@
-.form-container {
-  text-align: center;
+.searchbar-container {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  .searchbar-categories {
+    margin-right: 1em;
+  }
 }
