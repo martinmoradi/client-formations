@@ -16,9 +16,11 @@ const LandingPage = () => (
       <p>Learn how to learn <br/>
       Discover the skills of tomorrow.<br />
       And take charge of your career.</p>
+      <Link to="/register">
       <button type="button" className="btn-primary">
       Get started
       </button>
+      </Link>
     </div>
 
     <div className="home-img">
