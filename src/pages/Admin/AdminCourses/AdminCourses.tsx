@@ -1,0 +1,33 @@
+import React from 'react';
+import SearchBar from '../../../components/SearchBar/SearchBar';
+import CourseList from '../../../components/CourseList/CourseList';
+import ModalSession from '../../../components/Modal/ModalSession';
+import { Course } from '../../../types/models';
+
+const AdminCourses = () => {
+  console.log('admin courses');
+  const courses: Course[] = [
+    {
+      title: 'Course Title 1',
+    },
+    {
+      title: 'Course Title 2',
+    },
+    {
+      title: 'Course Title 3',
+    },
+    {
+      title: 'Course Title 4',
+    },
+  ];
+  return (
+    <div>
+      <h2>Admin Courses</h2>
+      <SearchBar />
+      <ModalSession />
+      <CourseList courses={courses} />
+    </div>
+  );
+};
+
+export default AdminCourses;

@@ -1,0 +1,48 @@
+@import './sass/utilities.scss';
+@import './sass/navbar.scss';
+@import './sass/calendar.scss';
+@import './sass/footer.scss';
+@import './sass/searchbar.scss';
+@import './sass/student_board.scss';
+@import './sass/card.scss';
+@import './sass/button.scss';
+@import './sass/landing_page.scss';
+
+// Global layout
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
+  p{
+    color:$gray;
+    font-size:18px;
+    font-weight: 500;
+    line-height: 2em;
+  }
+}
+
+.App {
+  position: relative;
+  min-height: 100vh;
+}
+main {
+  padding: 10% 10%;
+  padding-bottom: $footer-height+1em;
+  padding-top:$nav-height;
+  h3 {
+    color:$primary;
+    font-weight: bold;
+    font-size:38px;
+  }
+}
+
+.home-list {
+  background: rgb(245, 245, 245);
+  padding: 72px 0px;
+}
