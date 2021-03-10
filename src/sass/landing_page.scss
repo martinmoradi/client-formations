@@ -4,7 +4,7 @@
   justify-content:space-around;
 }
 .home-img {
-  height:40%;
+  height:60px;
   width: 35%;
   img {
     max-width: 100%;
@@ -12,5 +12,33 @@
     &:hover {
       transform: scale(1.1);
     }
+  }
+}
+
+.home-steps {
+  margin-top:5em;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  justify-content: space-around;
+  align-items:center;
+  img {
+    width: 80%;
+  }
+}
+
+.home-steps-item {
+  text-align:center;
+}
+
+.home-steps-txt {
+  display:flex;
+  margin-top:1em;
+  flex-direction:row;
+  justify-content:space-around;
+  h4 {
+    color:$primary;
+    font-weight: bold;
+    font-size:26px;
   }
 }
