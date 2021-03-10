@@ -7,6 +7,7 @@ import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import Footer from './components/Footer/Footer';
 import LandingPage from './pages/Home/LandingPage';
+import AdminBoard from './pages/Admin/AdminBoard/AdminBoard';
 
 const App = () => (
   <Router>
@@ -26,9 +27,12 @@ const App = () => (
           <Route path="/landing-page">
             <LandingPage />
           </Route>
+          <Route path="/admin">
+            <AdminBoard />
+          </Route>
         </Switch>
       </main>
-    <Footer />
+      <Footer />
     </div>
   </Router>
 );

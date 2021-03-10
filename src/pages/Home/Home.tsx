@@ -1,5 +1,6 @@
-import React from 'react'
+import React from 'react';
 import Calendar from '../../components/Calendar/Calendar';
+import AdminBoard from '../Admin/AdminBoard/AdminBoard';
 import StudentBoard from '../StudentBoard/StudentBoard';
 
 const Home = () => (
@@ -8,12 +9,9 @@ const Home = () => (
       <h1>Home | Dashboard</h1>
     </div>
     <div>
-      <StudentBoard />
-    </div>
-    <div>
       <Calendar />
     </div>
   </>
-  )
+);
 
-export default Home
+export default Home;
