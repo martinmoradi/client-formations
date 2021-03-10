@@ -1,27 +1,17 @@
 import React from 'react';
 import { List, Avatar } from 'antd';
+import { Course } from '../../types/models';
 
-const CourseList = () => {
-  const data = [
-    {
-      title: 'Ant Design Title 1',
-    },
-    {
-      title: 'Ant Design Title 2',
-    },
-    {
-      title: 'Ant Design Title 3',
-    },
-    {
-      title: 'Ant Design Title 4',
-    },
-  ];
-  return (
+type Props = {
+  courses: Course[];
+}
+
+const CourseList = ({ courses }: Props) => (
   <>
     <List
     itemLayout="horizontal"
-    dataSource={data}
-    renderItem={item => (
+    dataSource={courses}
+    renderItem={(item: Course) => (
       <List.Item>
         <List.Item.Meta
           avatar={
@@ -35,6 +25,6 @@ const CourseList = () => {
     />
   </>
   )
-}
+
 
 export default CourseList
