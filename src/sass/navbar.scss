@@ -25,17 +25,7 @@ $nav-height: 6rem;
     font-size: 18px;
     font-weight: 500;
   }
-}
-
-.logo {
-  display: none;
-  font-size: 32px;
-  font-weight: bold;
-  cursor: pointer;
-  color:white;
-}
-
-//links animation
+  //links animation
 a, a:visited {
 	text-decoration: none;
 	position: relative;
@@ -63,6 +53,15 @@ a, a:visited {
 			background: #eee;
 		}
   }
+}
+}
+
+.logo {
+  display: none;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  color:white;
 }
 
 // responsive

@@ -1,6 +1,7 @@
 import React from 'react';
-import { List, Avatar } from 'antd';
 import SearchBar from '../../../components/SearchBar/SearchBar';
+import CourseList from '../../../components/CourseList/CourseList';
+import ModalSession from '../../../components/Modal/ModalSession';
 
 const AdminCourses = () => {
   console.log('admin courses');
@@ -22,22 +23,8 @@ const AdminCourses = () => {
     <div>
       <h2>Admin Courses</h2>
       <SearchBar />
-      <List
-        itemLayout="horizontal"
-        dataSource={data}
-        renderItem={item => (
-          <List.Item>
-            <List.Item.Meta
-              avatar={
-                <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-              }
-              title={<a href="https://ant.design">{item.title}</a>}
-              description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-            />
-          </List.Item>
-        )}
-      />
-      ,
+      <ModalSession />
+      <CourseList />
     </div>
   );
 };

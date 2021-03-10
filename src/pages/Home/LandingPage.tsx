@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import StudentImg from '../../assets/images/student1.jpg';
 import GraduateImg from '../../assets/images/graduate.svg';
 import TeacherImg from '../../assets/images/teacher.svg';
@@ -15,9 +16,11 @@ const LandingPage = () => (
       <p>Learn how to learn <br/>
       Discover the skills of tomorrow.<br />
       And take charge of your career.</p>
+      <Link to="/register">
       <button type="button" className="btn-primary">
       Get started
       </button>
+      </Link>
     </div>
 
     <div className="home-img">
@@ -74,9 +77,11 @@ const LandingPage = () => (
           Choose your career and learn with professional projects.<br />
           Check below our training list.
         </p>
+        <Link to="/courses">
         <button type="button" className="btn-primary">
          Courses list
         </button>
+        </Link>
       </div>
       <div className="home-list-img">
         <img src={CoursesImg} alt="calendar" />
