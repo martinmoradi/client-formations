@@ -1,5 +1,4 @@
 import { Button } from 'antd';
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logoutUser } from '../../redux/auth/authMiddleware';
