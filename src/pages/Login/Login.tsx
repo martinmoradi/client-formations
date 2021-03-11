@@ -29,7 +29,6 @@ const Login = () => {
   const onFinish = (values: OnFinishValue) => {
     const user = { user: { ...values } };
     dispatch(loginUser(user));
-    console.log('Success:', values);
     history.push('/');
   };
 

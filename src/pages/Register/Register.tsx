@@ -34,7 +34,6 @@ const Register = () => {
   const onFinish = (values: OnFinishValue) => {
     const user = { user: { ...values } };
     dispatch(registerUser(user));
-    console.log('Success:', user);
     history.push('/');
   };
 
