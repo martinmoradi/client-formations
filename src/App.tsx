@@ -11,7 +11,7 @@ import LandingPage from './pages/Home/LandingPage';
 import AdminBoard from './pages/Admin/AdminBoard/AdminBoard';
 import Course from './pages/Course/Course';
 import { store } from './redux/store';
-import { AdminRoute } from './routes/Routes';
+import { AdminRoutes, AuthRoutes, NoAuthRoutes } from './routes/Routes';
 
 const App = () => (
   <Provider store={store}>
@@ -23,16 +23,12 @@ const App = () => (
             <Route path="/" exact>
               <Home />
             </Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
+            <NoAuthRoutes path="/register" component={Register} />
+            <NoAuthRoutes path="/login" component={Login} />
             <Route path="/landing-page">
               <LandingPage />
             </Route>
-            <AdminRoute path="/admin" component={AdminBoard} />
+            <AdminRoutes path="/admin" component={AdminBoard} />
             <Route path="/courses" exact>
               <Course />
             </Route>

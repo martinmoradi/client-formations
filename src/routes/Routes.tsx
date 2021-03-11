@@ -10,7 +10,7 @@ type RouteProps = {
   component: JSX.Element;
 };
 
-export const AdminRoute = ({ component: Component, ...rest }) => {
+export const AdminRoutes = ({ component: Component, ...rest }) => {
   const currentUser = useTypedSelector(state => state.auth.user.data);
   console.log('currentUser:', currentUser);
   const checkAdmin = () => currentUser && currentUser.role === 'admin';
@@ -28,15 +28,20 @@ export const AdminRoute = ({ component: Component, ...rest }) => {
   );
 };
 
-// export const PublicRoutes = ({ component: Component, ...rest }) => (
-//   <Route
-//     {...rest}
-//     render={(props) =>
-//       !checkAuth() ? (
-//         <Component {...props} />
-//       ) : (
-//         <Redirect to={{ pathname: '/' }} />
-//       )
-//     }
-//   />
-// );
+export const AuthRoutes = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      checkAuth() ? <Component {...props} /> : <Redirect to={{ pathname: '/login' }} />
+    }
+  />
+);
+
+export const NoAuthRoutes = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      !checkAuth() ? <Component {...props} /> : <Redirect to={{ pathname: '/' }} />
+    }
+  />
+);
