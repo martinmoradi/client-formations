@@ -1,5 +1,5 @@
 export type Classroom = {
-  title: string;
+  room_location: string;
 };
 
 export type Course = {
