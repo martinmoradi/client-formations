@@ -1,14 +1,7 @@
 import Cookies from 'js-cookie';
 import { Action } from './authActions';
 import { ActionType } from './authTypes';
-import { UserType } from '../../types/models';
-
-interface AuthState {
-  isFetching: boolean;
-  isAuthenticated: boolean;
-  errorMessage: string | null;
-  user: UserType | null;
-}
+import { AuthState } from '../../types/models';
 
 const initialState = {
   isFetching: false,
@@ -17,7 +10,8 @@ const initialState = {
   user: null,
 };
 
-const authReducer = (state = initialState, action: Action): AuthState => {
+const authReducer = 
+(state: AuthState = initialState, action: Action): AuthState => {
   switch (action.type) {
     case ActionType.USER_LOADING:
     case ActionType.REGISTER_REQUEST:

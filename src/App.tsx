@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { loadUser } from './redux/auth/authMiddleware';
+import { NoAuthRoutes, AdminRoutes } from './routes/Routes';
 import Navbar from './components/Navbar/Navbar';
 import './App.scss';
 import Home from './pages/Home/Home';
@@ -22,7 +23,7 @@ const App = () => {
     dispatch(loadUser());
   }, [dispatch]);
 
-   const client = new QueryClient();
+  const client = new QueryClient();
   return (
     <QueryClientProvider client={client}>
       <ReactQueryDevtools />
@@ -34,18 +35,12 @@ const App = () => {
               <Route path="/" exact>
                 <Home />
               </Route>
-              <Route path="/register">
-                <Register />
-              </Route>
-              <Route path="/login">
-                <Login />
-              </Route>
+              <NoAuthRoutes path="/register" component={Register} />
+              <NoAuthRoutes path="/login" component={Login} />
               <Route path="/landing-page">
                 <LandingPage />
               </Route>
-              <Route path="/admin">
-                <AdminBoard />
-              </Route>
+              <AdminRoutes path="/admin" component={AdminBoard} />
               <Route path="/courses" exact>
                 <Course />
               </Route>
