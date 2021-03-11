@@ -6,8 +6,7 @@ import { Classroom } from '../../../types/models';
 
 const AdminClassroom = () => (
     <div>
-      <h2>Admin Courses</h2>
-      <SearchBar />
+      <h2>Admin Classroom</h2>
       <ClassroomList />
     </div>
   );
