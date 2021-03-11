@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Form, Input, Button } from 'antd';
+import { useHistory } from 'react-router-dom';
 import { loginUser } from '../../redux';
 
 const layout = {
@@ -13,6 +14,7 @@ const tailLayout = {
 
 const Login = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   interface OnFinishValue {
     email: string;
     password: string;
@@ -28,6 +30,7 @@ const Login = () => {
     const user = { user: { ...values } };
     dispatch(loginUser(user));
     console.log('Success:', values);
+    history.push('/');
   };
 
   const onFinishFailed = (errorInfo: OnFinishFailed) => {

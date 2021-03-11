@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Form, Input, Button, Select } from 'antd';
+import { useHistory } from 'react-router-dom';
 import { registerUser } from '../../redux';
 
 const layout = {
@@ -11,7 +12,9 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
+
 const Register = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   interface OnFinishValue {
     first_name: string;
@@ -32,6 +35,7 @@ const Register = () => {
     const user = { user: { ...values } };
     dispatch(registerUser(user));
     console.log('Success:', user);
+    history.push('/');
   };
 
   const onFinishFailed = (errorInfo: OnFinishFailed) => {
