@@ -25,7 +25,7 @@ const AdminCourses = () => {
       <h2>Admin Courses</h2>
       <SearchBar />
       <ModalSession />
-      <CourseList courses={courses} />
+      <CourseList />
     </div>
   );
 };
