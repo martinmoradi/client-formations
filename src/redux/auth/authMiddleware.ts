@@ -7,7 +7,7 @@ import { ActionType } from './authTypes';
 import { Action } from './authActions';
 import { UserRegister, UserLogin } from '../../types/models';
 
-const config = (method: string, body = null) => {
+export const config = (method: string, body = null) => {
   const jwt = Cookies.get('jwt_token');
   if (jwt && !body) {
     return {
@@ -55,7 +55,7 @@ export const registerUser = (userData: UserRegister) => async (dispatch: Dispatc
   });
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BASE_URL}/login`,
+      `${process.env.REACT_APP_BASE_URL}/signup`,
       config('POST', userData)
     );
     const jwt = response.headers.get('Authorization');

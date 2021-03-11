@@ -17,9 +17,7 @@ const CourseList = () => {
 }
 
   const { data, isLoading, error } = useQuery("courses", getCourses)
-  console.log("data -> ", data)
-  console.log("isLoading -> ", isLoading)
-  console.log("error -> ", error)
+
   if (error) return <div>Something went wrong...</div>;
 
   return (
