@@ -7,7 +7,8 @@ import { logoutUser } from '../../redux/auth/authMiddleware';
 const Navbar = () => {
   const dispatch = useDispatch();
 
-  const handleLogout = () => {
+  const handleLogout = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    e.preventDefault();
     dispatch(logoutUser());
   };
   return (
@@ -33,7 +34,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="nav-item-right">
-        <Button onClick={e => handleLogout()}>Logout</Button>
+        <Button onClick={(e) => handleLogout(e)}>Logout</Button>
       </div>
     </nav>
   );
