@@ -29,14 +29,9 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </div>
         {!checkAuth() && (
-          <>
-            <div className="nav-item">
-              <Link to="/register">Register</Link>
-            </div>
-            <div className="nav-item">
-              <Link to="/login">Login</Link>
-            </div>
-          </>
+          <div className="nav-item">
+            <Link to="/register">Register</Link>
+          </div>
         )}
         <div className="nav-item">
           <Link to="/landing-page">LandingPage</Link>
@@ -47,9 +42,17 @@ const Navbar = () => {
           </div>
         )}
       </div>
-      <div className="nav-item-right">
-        <Button onClick={() => handleLogout()}>Logout</Button>
-      </div>
+      {checkAuth() ? (
+        <div className="nav-item-right">
+          <Button onClick={() => handleLogout()}>Logout</Button>
+        </div>
+      ) : (
+        <div className="nav-item-right">
+          <Button onClick={() => handleLogout()}>
+            <Link to="/login">Login</Link>
+          </Button>
+        </div>
+      )}
     </nav>
   );
 };

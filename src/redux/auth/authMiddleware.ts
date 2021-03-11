@@ -46,7 +46,6 @@ export const registerUser =  (userData: UserRegister) => async (dispatch: Dispat
     try {  
      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/login`, config('POST', userData ))
       const jwt = response.headers.get('Authorization')
-       // @ts-ignore
       Cookies.set('jwt_token', jwt)
       const data = await response.json()       
       dispatch({

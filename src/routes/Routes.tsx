@@ -12,7 +12,7 @@ type RouteProps = {
 };
 
 export const AdminRoutes = ({ component: Component, ...rest }) => {
-  const currentUser: UserType | null = useTypedSelector(state => state.auth.user);
+  const currentUser = useTypedSelector(state => state.auth.user);
 
   const checkAdmin = () => currentUser && currentUser.role === 'admin';
   return (
