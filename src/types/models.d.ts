@@ -21,7 +21,7 @@ export type UserLogin = {
   user: {
     email: string;
     password: string;
-  }
+  };
 };
 
 export type UserType = {
@@ -30,4 +30,15 @@ export type UserType = {
   first_name: string;
   last_name: string;
   role: string;
+};
+
+interface AuthState {
+  isFetching: boolean;
+  isAuthenticated: boolean;
+  errorMessage: string | null;
+  user: UserType | null;
 }
+
+export type RootState = {
+  auth: AuthState;
+};

@@ -11,6 +11,7 @@ import LandingPage from './pages/Home/LandingPage';
 import AdminBoard from './pages/Admin/AdminBoard/AdminBoard';
 import Course from './pages/Course/Course';
 import { store } from './redux/store';
+import { AdminRoute } from './routes/Routes';
 
 const App = () => (
   <Provider store={store}>
@@ -31,9 +32,7 @@ const App = () => (
             <Route path="/landing-page">
               <LandingPage />
             </Route>
-            <Route path="/admin">
-              <AdminBoard />
-            </Route>
+            <AdminRoute path="/admin" component={AdminBoard} />
             <Route path="/courses" exact>
               <Course />
             </Route>
