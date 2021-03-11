@@ -7,8 +7,7 @@ import { logoutUser } from '../../redux/auth/authMiddleware';
 const Navbar = () => {
   const dispatch = useDispatch();
 
-  const handleLogout = e => {
-    e.preventDefault();
+  const handleLogout = () => {
     dispatch(logoutUser());
   };
   return (
@@ -34,7 +33,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="nav-item-right">
-        <Button onClick={e => handleLogout(e)}>Logout</Button>
+        <Button onClick={e => handleLogout()}>Logout</Button>
       </div>
     </nav>
   );

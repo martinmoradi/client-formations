@@ -9874,7 +9874,7 @@ rc-mentions@~1.5.0:
     rc-trigger "^5.0.4"
     rc-util "^5.0.1"
 
-rc-menu@^8.0.1, rc-menu@^8.6.1, rc-menu@~8.10.0:
+rc-menu@^8.0.1, rc-menu@^8.10.6, rc-menu@^8.6.1, rc-menu@~8.10.0:
   version "8.10.6"
   resolved "https://registry.yarnpkg.com/rc-menu/-/rc-menu-8.10.6.tgz#34cb9e4247fe56fd24d12bc785afb94128a3b45d"
   integrity sha512-RVkd8XChwSmVOdNULbqLNnABthRZWnhqct1Q74onEXTClsXvsLADMhlIJtw/umglVSECM+14TJdIli9rl2Bzlw==

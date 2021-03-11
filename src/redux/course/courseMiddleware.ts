@@ -1,16 +1,14 @@
-import Cookies from 'js-cookie';
 import { Dispatch } from "redux";
-import {
-  requestCourse,
-  receiveCourse,
-  courseError,
-} from './courseActions';
+import { Action } from './courseActions';
+import { ActionType } from './courseTypes';
 import { Course } from '../../types/models';
 
-const BASE_URL = 'https://api-formations-prod.herokuapp.com/api'
-
 export const getAllCourses = 
-(courseData: Course) => (dispatch: Dispatch) => {
+(courseData: Course) => async (dispatch: Dispatch<Action>) => {
+  dispatch({
+    type: ActionType.COURSE_REQUEST
+  });
+  try {
   const config = {
     method: 'GET',
     headers: {
@@ -18,19 +16,16 @@ export const getAllCourses =
     },
     body: JSON.stringify(courseData),
   };
+  const { data } = await (await fetch(`${process.env.REACT_APP_BASE_URL}/v1/courses`, config)).json()
 
-  dispatch(requestCourse());
-  fetch(
-    `${BASE_URL}/v1/courses`,
-    config
-  )
-    .then((response) => response.json())
-    .then((response) => {
-      if (response.statusCode) {
-        dispatch(courseError(response.message));
-      } else {
-        Cookies.set('id_token', response.jwt);
-        dispatch(receiveCourse(response));
-      }
-    });
+  dispatch ({
+    type: ActionType.COURSE_REQUEST,
+    payload: data
+  })
+  } catch (error) {
+    dispatch({
+      type: ActionType.COURSE_FAILURE,
+      payload: error.message,
+    })
+  }
 };

@@ -1,22 +1,20 @@
+import { Course } from '../../types/models';
 import { ActionType } from './courseTypes';
 
-export const requestCourse = () => ({
+interface CourseAction {
   type: ActionType.COURSE_REQUEST,
-  isFetching: true,
-  isAuthenticated: false,
-});
-// @ts-ignore
-export const receiveCourse = (response) => ({
+};
+interface CourseSuccess {
   type: ActionType.COURSE_SUCCESS,
-  isFetching: false,
-  isAuthenticated: true,
-  id_token: response.jwt,
-  course: response.course,
-});
+  payload: Course
+};
 
-export const courseError = (message: String[]) => ({
+interface CourseFailure {
   type: ActionType.COURSE_FAILURE,
-  isFetching: false,
-  isAuthenticated: false,
-  message,
-});
+  payload: string
+};
+
+export type Action = 
+ | CourseAction
+ | CourseSuccess
+ | CourseFailure

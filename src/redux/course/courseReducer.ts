@@ -1,48 +1,41 @@
-import Cookies from 'js-cookie';
-import { Action } from 'redux';
+import { Action } from './courseActions';
+import { Course } from '../../types/models';
 import { ActionType } from './courseTypes';
 
 type CourseState = {
   isFetching: boolean,
-  isAuthenticated: boolean,
-  errorMessage: string,
-  user: undefined,
+  errorMessage: string | null,
+  course: Course | null,
 }
 
 const initialState = {
   isFetching: false,
-  isAuthenticated: !!Cookies.get('id_token'),
-  errorMessage: '',
-  courses: undefined,
+  errorMessage: null,
+  course: null,
 };
 
-const courseReducer = (state = initialState, action: Action) => {
+const courseReducer = (state = initialState, action: Action): CourseState => {
   switch (action.type) {
 
     case ActionType.COURSE_REQUEST:
       return {
         ...state,
         isFetching: true,
-        isAuthenticated: false,
       };
 
     case ActionType.COURSE_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        isAuthenticated: true,
-        errorMessage: '',
-        // @ts-ignore
-        courses: action.courses,
+        errorMessage: null,
+        course: action.payload,
       };
 
     case ActionType.COURSE_FAILURE:
       return {
         ...state,
         isFetching: false,
-        isAuthenticated: false,
-        // @ts-ignore
-        errorMessage: action.message,
+        errorMessage: action.payload,
       };
     default:
       return state;
