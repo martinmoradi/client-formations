@@ -1,7 +1,5 @@
-import React from 'react';
-import { Input, Space, Menu, Dropdown, Button, message } from 'antd';
+import { Input, Space, Menu, Dropdown, Button } from 'antd';
 import { AudioOutlined, DownOutlined, UserOutlined } from '@ant-design/icons';
-import { MenuInfo } from 'rc-menu/lib/interface';
 
 const SearchBar = () => {
   const { Search } = Input;
@@ -14,7 +12,7 @@ const SearchBar = () => {
       }}
     />
   );
-  
+
   const menu = (
     <Menu>
       <Menu.Item key="1" icon={<UserOutlined />}>
@@ -33,17 +31,23 @@ const SearchBar = () => {
   return (
     <div className="searchbar-container">
       <div className="searchbar-categories">
-    <Dropdown overlay={menu}>
-      <Button>
-        Categories <DownOutlined />
-      </Button>
-    </Dropdown>
+        <Dropdown overlay={menu}>
+          <Button>
+            Categories <DownOutlined />
+          </Button>
+        </Dropdown>
       </div>
       <Space direction="vertical">
-        <Search placeholder="What do you want to learn ?" onSearch={onSearch} enterButton size="large" style={{ width: 400 }} />
+        <Search
+          placeholder="What do you want to learn ?"
+          onSearch={onSearch}
+          enterButton
+          size="large"
+          style={{ width: 400 }}
+        />
       </Space>
-  </div>
-  )
-}
+    </div>
+  );
+};
 
-export default SearchBar
+export default SearchBar;

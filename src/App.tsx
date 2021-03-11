@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { Provider, useDispatch } from 'react-redux';
 import { store } from './redux/store';
-import { loadUser } from './redux/auth/authMiddleware'
+import { loadUser } from './redux/auth/authMiddleware';
 
 import Navbar from './components/Navbar/Navbar';
 import './App.scss';
@@ -15,6 +15,7 @@ import LandingPage from './pages/Home/LandingPage';
 import AdminBoard from './pages/Admin/AdminBoard/AdminBoard';
 import Course from './pages/Course/Course';
 
+import { AdminRoutes, AuthRoutes, NoAuthRoutes } from './routes/Routes';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -24,39 +25,33 @@ const App = () => {
     dispatch(loadUser());
   }, [dispatch]);
 
-  const client = new QueryClient()
+  const client = new QueryClient();
   return (
-     <QueryClientProvider client={client}>
-    <Router>
-      <div className="App">
-        <Navbar />
-        <main>
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/landing-page">
-              <LandingPage />
-            </Route>
-            <Route path="/admin">
-              <AdminBoard />
-            </Route>
-            <Route path="/courses" exact>
-              <Course />
-            </Route>
-          </Switch>
-        </main>
-        <Footer />
-      </div>
-    </Router>
-   </QueryClientProvider>
-  )
+    <QueryClientProvider client={client}>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <main>
+            <Switch>
+              <Route path="/" exact>
+                <Home />
+              </Route>
+              <NoAuthRoutes path="/register" component={Register} />
+              <NoAuthRoutes path="/login" component={Login} />
+              <Route path="/landing-page">
+                <LandingPage />
+              </Route>
+              <AdminRoutes path="/admin" component={AdminBoard} />
+              <Route path="/courses" exact>
+                <Course />
+              </Route>
+            </Switch>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </QueryClientProvider>
+  );
 };
 
 export default App;

@@ -1,13 +1,22 @@
 import { Button } from 'antd';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { logoutUser } from '../../redux/auth/authMiddleware';
+import { UserType } from '../../types/models';
 
 const Navbar = () => {
   const dispatch = useDispatch();
 
-  const handleLogout = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    e.preventDefault();
+  const currentUser = useTypedSelector(state => state.auth.user);
+  console.log('currentUser:', currentUser);
+
+  const checkAdmin = () => currentUser && currentUser.role === 'admin';
+  const checkValideted = () => currentUser && currentUser.is_validated;
+  const checkAuth = () => !!Cookies.get('jwt_token');
+
+  const handleLogout = () => {
     dispatch(logoutUser());
   };
   return (
@@ -19,22 +28,31 @@ const Navbar = () => {
         <div className="nav-item">
           <Link to="/">Home</Link>
         </div>
-        <div className="nav-item">
-          <Link to="/register">Register</Link>
-        </div>
-        <div className="nav-item">
-          <Link to="/login">Login</Link>
-        </div>
+        {!checkAuth() && (
+          <div className="nav-item">
+            <Link to="/register">Register</Link>
+          </div>
+        )}
         <div className="nav-item">
           <Link to="/landing-page">LandingPage</Link>
         </div>
-        <div className="nav-item">
-          <Link to="/admin">Admin</Link>
+        {checkAdmin() && (
+          <div className="nav-item">
+            <Link to="/admin">Admin</Link>
+          </div>
+        )}
+      </div>
+      {checkAuth() ? (
+        <div className="nav-item-right">
+          <Button onClick={() => handleLogout()}>Logout</Button>
         </div>
-      </div>
-      <div className="nav-item-right">
-        <Button onClick={(e) => handleLogout(e)}>Logout</Button>
-      </div>
+      ) : (
+        <div className="nav-item-right">
+          <Button onClick={() => handleLogout()}>
+            <Link to="/login">Login</Link>
+          </Button>
+        </div>
+      )}
     </nav>
   );
 };
