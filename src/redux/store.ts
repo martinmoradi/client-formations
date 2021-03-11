@@ -4,8 +4,10 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import authReducer from './auth/authReducer';
+import courseReducer from './course/courseReducer';
 
 const rootReducer = combineReducers({
+  courses:courseReducer,
   auth: authReducer,
 });
 
