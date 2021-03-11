@@ -1,4 +1,5 @@
-import React from 'react';
+ // @ts-nocheck
+import { useQuery } from "react-query";
 import { List, Avatar } from 'antd';
 import { Course } from '../../types/models';
 
@@ -6,11 +7,25 @@ type Props = {
   courses: Course[];
 }
 
-const CourseList = ({ courses }: Props) => (
+
+const CourseList = () => {
+
+  const getCourses = async () => {
+  const response = await fetch(`${process.env.REACT_APP_BASE_URL}/v1/courses`)
+  const data = await response.json()
+  return data
+}
+
+  const { data, isLoading, error } = useQuery("courses", getCourses)
+
+  if (error) return <div>Something went wrong...</div>;
+
+  return (
   <>
-    <List
+    {!isLoading && <List
     itemLayout="horizontal"
-    dataSource={courses}
+    dataSource={data.data}
+    loading={isLoading}
     renderItem={(item: Course) => (
       <List.Item>
         <List.Item.Meta
@@ -18,13 +33,15 @@ const CourseList = ({ courses }: Props) => (
             <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
           }
           title={<a href="https://ant.design">{item.title}</a>}
-          description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+          description={item.attributes.title}
         />
       </List.Item>
     )}
-    />
+    />}
+
   </>
   )
+}
 
 
 export default CourseList

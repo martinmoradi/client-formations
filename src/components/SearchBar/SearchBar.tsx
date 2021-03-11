@@ -1,9 +1,11 @@
-import React from 'react';
-import { Input, Space, Menu, Dropdown, Button, message } from 'antd';
+// @ts-nocheck
+import { Input, Space, Menu, Dropdown, Button } from 'antd';
 import { AudioOutlined, DownOutlined, UserOutlined } from '@ant-design/icons';
-import { MenuInfo } from 'rc-menu/lib/interface';
+import { SetStateAction, useState } from 'react';
 
 const SearchBar = () => {
+  const [keyword, SetKeyword] = useState();
+
   const { Search } = Input;
 
   const suffix = (
@@ -14,7 +16,7 @@ const SearchBar = () => {
       }}
     />
   );
-  
+
   const menu = (
     <Menu>
       <Menu.Item key="1" icon={<UserOutlined />}>
@@ -29,21 +31,31 @@ const SearchBar = () => {
     </Menu>
   );
 
-  const onSearch = (value: string) => console.log(value);
+  const onSearch = (value: SetStateAction<undefined>) => {
+    SetKeyword(value);
+    search(value);
+  };
   return (
     <div className="searchbar-container">
       <div className="searchbar-categories">
-    <Dropdown overlay={menu}>
-      <Button>
-        Categories <DownOutlined />
-      </Button>
-    </Dropdown>
+        <Dropdown overlay={menu}>
+          <Button>
+            Categories <DownOutlined />
+          </Button>
+        </Dropdown>
       </div>
       <Space direction="vertical">
-        <Search placeholder="What do you want to learn ?" onSearch={onSearch} enterButton size="large" style={{ width: 400 }} />
+        <Search
+          placeholder="What do you want to learn ?"
+          onSearch={(e) => onSearch(e.currentTager.value)}
+          value = {keyword}
+          enterButton
+          size="large"
+          style={{ width: 400 }}
+        />
       </Space>
-  </div>
-  )
-}
+    </div>
+  );
+};
 
-export default SearchBar
+export default SearchBar;

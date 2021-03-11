@@ -4,6 +4,7 @@ import CardDb from '../../../components/Card/Card';
 import SearchBar from '../../../components/SearchBar/SearchBar';
 import AdminClassroom from '../AdminClassroom/AdminClassroom';
 import AdminCourses from '../AdminCourses/AdminCourses';
+import AdminUsers from '../AdminUsers/AdminUsers'
 
 const AdminBoard = () => (
   <>
@@ -30,6 +31,9 @@ const AdminBoard = () => (
           </Route>
           <Route path="/admin/classroom">
             <AdminClassroom />
+          </Route>
+          <Route path="/admin/user">
+            <AdminUsers />
           </Route>
         </Switch>
       </div>

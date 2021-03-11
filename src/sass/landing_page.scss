@@ -51,20 +51,19 @@
   }
 }
 
+$img-height:60px;
 .home-list {
+  background: rgb(245, 245, 245);
+  padding: 72px 0px;
   margin-top:8em;
   display:flex;
   justify-content:space-around;
 }
 
 .home-list-img {
-  height:60px;
+  height:$img-height;
   width: 35%;
   img {
-    max-width: 100%;
-    transition: all .2s ease-in-out;
-    &:hover {
-      transform: scale(1.1);
+    max-width: 80%;
     }
   }
-}
