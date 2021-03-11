@@ -1,10 +1,11 @@
+// @ts-nocheck
 import { Input, Space, Menu, Dropdown, Button } from 'antd';
 import { AudioOutlined, DownOutlined, UserOutlined } from '@ant-design/icons';
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 
 const SearchBar = () => {
   const [keyword, SetKeyword] = useState();
-  
+
   const { Search } = Input;
 
   const suffix = (
@@ -30,7 +31,10 @@ const SearchBar = () => {
     </Menu>
   );
 
-  const onSearch = (value: string) => console.log(value);
+  const onSearch = (value: SetStateAction<undefined>) => {
+    SetKeyword(value);
+    search(value);
+  };
   return (
     <div className="searchbar-container">
       <div className="searchbar-categories">
@@ -43,7 +47,8 @@ const SearchBar = () => {
       <Space direction="vertical">
         <Search
           placeholder="What do you want to learn ?"
-          onSearch={onSearch}
+          onSearch={(e) => onSearch(e.currentTager.value)}
+          value = {keyword}
           enterButton
           size="large"
           style={{ width: 400 }}
