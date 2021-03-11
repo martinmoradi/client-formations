@@ -1,5 +1,7 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Form, Input, Button, Select } from 'antd';
+import { registerUser } from '../../redux';
 
 const layout = {
   labelCol: { span: 8 },
@@ -10,12 +12,13 @@ const tailLayout = {
 };
 
 const Register = () => {
+  const dispatch = useDispatch();
   interface OnFinishValue {
-    firstName: string;
-    lastName: string;
+    first_name: string;
+    last_name: string;
     email: string;
     password: string;
-    passwordConfirmation: string;
+    password_confirmation: string;
     role: string;
   }
 
@@ -26,7 +29,9 @@ const Register = () => {
   }
 
   const onFinish = (values: OnFinishValue) => {
-    console.log('Success:', values);
+    const user = { user: { ...values } };
+    dispatch(registerUser(user));
+    console.log('Success:', user);
   };
 
   const onFinishFailed = (errorInfo: OnFinishFailed) => {
@@ -43,7 +48,7 @@ const Register = () => {
     >
       <Form.Item
         label="Firstname"
-        name="firstName"
+        name="first_name"
         rules={[{ required: true, message: 'Please input your firstname!' }]}
       >
         <Input />
@@ -51,7 +56,7 @@ const Register = () => {
 
       <Form.Item
         label="Lastname"
-        name="lastName"
+        name="last_name"
         rules={[{ required: true, message: 'Please input your lastname!' }]}
       >
         <Input />
@@ -87,7 +92,7 @@ const Register = () => {
 
       <Form.Item
         label="Password Confirmation"
-        name="passwordConfirmation"
+        name="password_confirmation"
         rules={[{ required: true, message: 'Please input your password confirmation!' }]}
       >
         <Input.Password />

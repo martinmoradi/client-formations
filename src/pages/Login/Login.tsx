@@ -1,5 +1,7 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Form, Input, Button } from 'antd';
+import { loginUser } from '../../redux';
 
 const layout = {
   labelCol: { span: 8 },
@@ -10,6 +12,7 @@ const tailLayout = {
 };
 
 const Login = () => {
+  const dispatch = useDispatch();
   interface OnFinishValue {
     email: string;
     password: string;
@@ -22,6 +25,8 @@ const Login = () => {
   }
 
   const onFinish = (values: OnFinishValue) => {
+    const user = { user: { ...values } };
+    dispatch(loginUser(user));
     console.log('Success:', values);
   };
 

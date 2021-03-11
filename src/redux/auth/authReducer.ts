@@ -1,0 +1,62 @@
+import Cookies from 'js-cookie';
+import { Action } from './authActions';
+import { ActionType } from './authTypes';
+import { UserType } from '../../types/models';
+
+interface AuthState {
+  isFetching: boolean;
+  isAuthenticated: boolean;
+  errorMessage: string | null;
+  user: UserType | null,
+}
+
+const initialState = {
+  isFetching: false,
+  isAuthenticated: !!Cookies.get('jwt_token'),
+  errorMessage: null,
+  user: null,
+};
+
+const authReducer = (state = initialState, action: Action): AuthState => {
+  switch (action.type) {
+
+    case ActionType.REGISTER_REQUEST:
+    case ActionType.LOGIN_REQUEST:
+      return {
+        ...state,
+        isFetching: true,
+        isAuthenticated: false,
+      };
+
+    case ActionType.REGISTER_SUCCESS:
+    case ActionType.LOGIN_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        isAuthenticated: true,
+        errorMessage: null,
+        user: action.payload,
+      };
+
+    case ActionType.REGISTER_FAILURE:
+    case ActionType.LOGIN_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        isAuthenticated: false,
+        errorMessage: action.payload,
+      };
+
+    case ActionType.LOGOUT_ACTION:
+      return {
+        ...state,
+        isFetching: false,
+        isAuthenticated: false,
+        user: null,
+      };
+    default:
+      return state;
+  }
+};
+
+export default authReducer;
