@@ -13,7 +13,6 @@ const initialState = {
 const authReducer = 
 (state: AuthState = initialState, action: Action): AuthState => {
   switch (action.type) {
-
     case ActionType.USER_LOADING:
     case ActionType.REGISTER_REQUEST:
     case ActionType.LOGIN_REQUEST:
@@ -21,6 +20,7 @@ const authReducer =
         ...state,
         isFetching: true,
         isAuthenticated: false,
+        user: null,
       };
 
     case ActionType.USER_LOADED:
@@ -42,13 +42,15 @@ const authReducer =
         isFetching: false,
         isAuthenticated: false,
         errorMessage: action.payload,
+        user: null,
       };
-  
+
     case ActionType.LOGOUT_ACTION:
       return {
         ...state,
         isFetching: false,
         isAuthenticated: false,
+        errorMessage: null,
         user: null,
       };
     default:
