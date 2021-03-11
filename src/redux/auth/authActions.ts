@@ -34,6 +34,20 @@ interface LogoutAction {
   type: ActionType.LOGOUT_ACTION
 }
 
+interface UserLoading {
+  type: ActionType.USER_LOADING
+}
+
+interface UserLoaded {
+  type: ActionType.USER_LOADED
+  payload: UserType
+}
+
+interface AuthError {
+  type: ActionType.AUTH_ERROR
+  payload: string
+}
+
 export type Action = 
  | RegisterAction
  | RegisterSuccess
@@ -42,3 +56,6 @@ export type Action =
  | LoginSuccess
  | LoginFailure
  | LogoutAction
+ | UserLoading
+ | UserLoaded
+ | AuthError
