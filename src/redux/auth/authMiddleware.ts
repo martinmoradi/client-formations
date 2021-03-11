@@ -7,7 +7,7 @@ import { ActionType } from './authTypes';
 import { Action } from './authActions';
 import { UserRegister, UserLogin } from '../../types/models';
 
-const config = (method: string, body = null) => {
+export const config = (method: string, body = null) => {
   const jwt = Cookies.get('jwt_token');
   if (jwt && !body) {
     return {

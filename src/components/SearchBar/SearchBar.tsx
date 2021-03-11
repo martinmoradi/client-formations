@@ -1,7 +1,10 @@
 import { Input, Space, Menu, Dropdown, Button } from 'antd';
 import { AudioOutlined, DownOutlined, UserOutlined } from '@ant-design/icons';
+import { useState } from 'react';
 
 const SearchBar = () => {
+  const [keyword, SetKeyword] = useState();
+  
   const { Search } = Input;
 
   const suffix = (

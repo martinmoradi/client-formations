@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import ClassroomList from '../../../components/ClassroomList/ClassroomList';
 import SearchBar from '../../../components/SearchBar/SearchBar';
