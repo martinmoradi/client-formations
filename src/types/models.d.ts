@@ -30,6 +30,7 @@ export type UserType = {
   first_name: string;
   last_name: string;
   role: string;
+  is_validated: boolean;
 };
 
 interface AuthState {
