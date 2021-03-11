@@ -1,5 +1,4 @@
 import { Button } from 'antd';
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logoutUser } from '../../redux/auth/authMiddleware';
@@ -7,7 +6,7 @@ import { logoutUser } from '../../redux/auth/authMiddleware';
 const Navbar = () => {
   const dispatch = useDispatch();
 
-  const handleLogout = e => {
+  const handleLogout = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     e.preventDefault();
     dispatch(logoutUser());
   };
