@@ -14,8 +14,7 @@ const ModalSession = () => {
     setVisible(false);
   };
 
-  const handleOk = (values: OnFinishValue) => {
-    onFinish(values);
+  const handleOk = () => {
     setModalText('Registration in progress...');
     setConfirmLoading(true);
     setTimeout(() => {

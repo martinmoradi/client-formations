@@ -34,7 +34,7 @@ const Navbar = () => {
           </div>
         )}
         <div className="nav-item">
-          <Link to="/landing-page">LandingPage</Link>
+          <Link to="/landing-page">About</Link>
         </div>
         {checkAdmin() && checkValideted() && (
           <div className="nav-item">
