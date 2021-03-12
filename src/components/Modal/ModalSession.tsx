@@ -1,6 +1,5 @@
 import React from 'react';
-import { Modal, Button } from 'antd';
-
+import { Modal, Button, Form, Input } from 'antd';
 
 const ModalSession = () => {
   const [visible, setVisible] = React.useState(false);
@@ -10,8 +9,13 @@ const ModalSession = () => {
   const showModal = () => {
     setVisible(true);
   };
+  const onFinish = (values: OnFinishValue) => {
+    console.log('values:', values);
+    setVisible(false);
+  };
 
-  const handleOk = () => {
+  const handleOk = (values: OnFinishValue) => {
+    onFinish(values);
     setModalText('Registration in progress...');
     setConfirmLoading(true);
     setTimeout(() => {
@@ -24,6 +28,22 @@ const ModalSession = () => {
     console.log('Clicked cancel button');
     setVisible(false);
   };
+
+  interface OnFinishValue {
+    email: string;
+    password: string;
+  }
+
+  interface OnFinishFailed {
+    errorFields: Array<object>;
+    outOfDate: boolean;
+    values: OnFinishValue;
+  }
+
+  const onFinishFailed = (errorInfo: OnFinishFailed) => {
+    console.log('Failed:', errorInfo);
+  };
+
   return (
     <>
       <Modal
@@ -33,13 +53,31 @@ const ModalSession = () => {
         confirmLoading={confirmLoading}
         onCancel={handleCancel}
       >
-        <p>{modalText}</p>
+        <Form
+          name="basic"
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+        >
+          <Form.Item
+            label="Title"
+            name="title"
+            rules={[{ required: true, type: 'string', message: 'Please input the title!' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
+        </Form>
       </Modal>
       <Button type="primary" onClick={showModal}>
         Register to a session
       </Button>
     </>
-  )
-}
+  );
+};
 
-export default ModalSession
+export default ModalSession;

@@ -14,7 +14,7 @@ const Navbar = () => {
 
   const checkAdmin = () => currentUser && currentUser.role === 'admin';
   const checkValideted = () => currentUser && currentUser.is_validated;
-  const checkAuth = () => !!Cookies.get('jwt_token');
+  const checkAuth = () => !!Cookies.get('jwt_token') && Cookies.get('jwt_token') !== null;
 
   const handleLogout = () => {
     dispatch(logoutUser());
@@ -36,7 +36,7 @@ const Navbar = () => {
         <div className="nav-item">
           <Link to="/landing-page">LandingPage</Link>
         </div>
-        {checkAdmin() && checkValideted() &&(
+        {checkAdmin() && checkValideted() && (
           <div className="nav-item">
             <Link to="/admin">Admin</Link>
           </div>
