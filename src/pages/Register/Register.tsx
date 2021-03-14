@@ -7,11 +7,11 @@ import { registerUser } from '../../redux';
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
+  // test rebase
 };
 const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
-
 
 const Register = () => {
   const history = useHistory();

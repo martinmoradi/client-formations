@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Modal, Button, Form, Input } from 'antd';
 
