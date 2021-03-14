@@ -3,12 +3,8 @@ import { useDispatch } from 'react-redux';
 import { Form, Input, Button, Select } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { registerUser } from '../../redux';
+// blablablableezrzerezrz
 
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
-  // test rebase
-};
 const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
